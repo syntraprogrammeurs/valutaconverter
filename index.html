@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="project valuta converter">
+  <meta name="keywords" content="vue basics">
+  <meta name="author" content="Tom Vanhoutte">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title>Valuta Converter</title>
+</head>
+<body>
+<div id="app">
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-6">
+        <label>Van</label>
+        <select v-model="van" name="" id="" class="form-control">
+          <option :value="eenValuta.id" v-for="eenValuta in formatValuta">{{ eenValuta.currencyName }}</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label>Naar</label>
+        <select v-model="naar" name="" id="" class="form-control">
+          <option :value="eenValuta.id" v-for="eenValuta in formatValuta">{{ eenValuta.currencyName }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <input v-model="bedrag" type="text" placeholder="bedrag" class="form-control my-5">
+        <div class="text-center">
+          <button v-on:click="convertValuta" class="btn btn-primary">
+            Convert
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="text-center display-2 mt-5">
+          {{ berekenResultaat }}
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
